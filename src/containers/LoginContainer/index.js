@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { connect } from "react-redux";
-import Footer from '../../components/footerComponent';
 import { adharNumberVerify, emailValidator, otpVerify } from '../../validators/validate';
 import AdharImg from '../../assets/1200px-Aadhaar_Logo.svg.png';
 import {updateCurrentState} from '../../redux/actions';
@@ -58,7 +57,7 @@ const LoginContainer = (props) => {
         props.currentState === 'adhar' ? <div className="login-container-content-wrapper">
             <div className="adhar-details-section">
                 <div className="adhar-input-section">
-                    <img src={AdharImg} className="adhar-img"/>
+                    <img src={AdharImg} alt="adhar" className="adhar-img"/>
                     <div className="adhar-input-verify-section">
                         <input type="number" onChange={handleAdharInput}/>
                         <button disabled={adharNumberVerify(adhar) ? false : true} >Verify</button>
@@ -76,7 +75,7 @@ const LoginContainer = (props) => {
             <div className="document-content-div">
                 <div className="overlay"></div>
                 <div className="document-div">
-                    <img src={DocImg} />
+                    <img src={DocImg} alt="doc" />
                 </div>
                 <div className="static-button-div">
                     <button className="static-otp-button">Request OTP to sign</button>
@@ -88,7 +87,7 @@ const LoginContainer = (props) => {
         {
             props.currentState === 'signing' ? <div className="login-container-content-wrapper">
             <div className="adhar-signin-process-section">
-                <div className="">
+                <div className="" >
                     {showVerified ? <i className="far fa-check-circle" style={{color: 'green', fontSize: 25}}></i> : null}
                     <h4>{showVerified ? 'Adhar verified successfully' : 'Loading...'}</h4>
                 </div>
@@ -96,7 +95,7 @@ const LoginContainer = (props) => {
             <div className="document-content-div">
                 {!showVerified ? <div className="overlay"></div>: null}
                 <div className="document-div">
-                    <img src={DocImg} />
+                    <img src={DocImg} alt="doc"/>
                 </div>
                 <div className="static-button-div">
                     <button className="static-otp-button">Request OTP to sign</button>

@@ -8,7 +8,7 @@ const LoggedOutHeader = props => {
                 <h4>Sign document using</h4>
                 <h5>sanket@digio.in</h5>
             </div>
-            <img src={GenericCompanyLogo} className="loggedout-header-img" />
+            <img alt="header" src={GenericCompanyLogo} className="loggedout-header-img" />
         </div>
     )
 }

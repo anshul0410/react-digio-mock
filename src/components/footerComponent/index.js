@@ -5,7 +5,7 @@ const Footer = props => {
     return (
         <div className="footer-main">
             <div className="footer-logo-section">
-                <img src={DigioLogo} className="footer-digio-logo" />
+                <img alt="digio" src={DigioLogo} className="footer-digio-logo" />
                 <div className="footer-powered-by-section">
                     <p>Powered by</p>
                     <a href="www.digio.in">www.digio.in</a>

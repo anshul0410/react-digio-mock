@@ -1,5 +1,4 @@
 import React from 'react';
-import GenericCompanyLogo from '../../../assets/generic-logo-hi.png';
 
 const LoggedInHeader = props => {
     return (
