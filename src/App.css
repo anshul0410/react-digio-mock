@@ -7,6 +7,82 @@
   pointer-events: none;
 }
 
+.loggedout-header-main {
+  background-color: blue;
+  display: flex;
+  justify-content: space-between;
+}
+
+.loggedout-header-img {
+  height: 50px;
+  position: relative;
+  top: 15px;
+  right: 50px;
+}
+
+.loggedout-header-text-section {
+  padding: 15px 15px 15px 20px;
+}
+
+.loggedout-header-text-section h4, .loggedout-header-text-section h5{
+  margin: 0;
+  margin-bottom: 8px;
+  color: #fff;
+  font-size: 18px;
+}
+.loggedout-header-text-section h5{
+  margin: 0;
+  margin-bottom: 5px;
+  color: #fff;
+  font-size: 16px;
+}
+
+/* FOOTER */
+.footer-main{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  border-top: 1px solid #c5c5c5;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+}
+.footer-digio-logo {
+  height: 60px;
+  width: 60px;
+}
+.footer-logo-section {
+  display: flex;
+  padding-left: 15px;
+}
+.footer-powered-by-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-left: 10px;
+}
+.footer-powered-by-section p {
+  margin: 0;
+  font-size: 16px;
+}
+.footer-powered-by-section a {
+  text-decoration: none;
+}
+.footer-steps-section {
+  padding-right: 15px;
+}
+
+/* LOGIN CONTAINER */
+.login-container-main, 
+.login-social-section,
+.login-confirm-policy-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
