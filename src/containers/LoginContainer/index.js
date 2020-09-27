@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from "react-redux";
 import { adharNumberVerify, emailValidator, otpVerify } from '../../validators/validate';
 import AdharImg from '../../assets/1200px-Aadhaar_Logo.svg.png';
-import {updateCurrentState} from '../../redux/actions';
+import {updateCurrentState, updateUserSign} from '../../redux/actions';
 import DocImg from '../../assets/doc.png'
 
 const LoginContainer = (props) => {
@@ -14,10 +14,7 @@ const LoginContainer = (props) => {
     const handleEmailChange = (event) => {
         setEmail(event.target.value)
     }
-    console.log(email,'email')
-    console.log(emailValidator(email),'emailValidator(email)')
     const handleContinueClick = () => {
-        console.log('inside on click')
         props.getUpdatedState('adhar')
     }
     const handleAdharInput = (event) => {
@@ -29,8 +26,8 @@ const LoginContainer = (props) => {
     const handleOtpSubmit = () => {
         props.getUpdatedState('signing')
         setTimeout(() => {
-            console.log('timeout called')
             setShowVerified(true);
+            props.updateUserSign(true)
         }, 3000)
     }
 
@@ -118,7 +115,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-		getUpdatedState: data => dispatch(updateCurrentState(data))
+        getUpdatedState: data => dispatch(updateCurrentState(data)),
+        updateUserSign: data => dispatch(updateUserSign(data))
 	}
 }
 

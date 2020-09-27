@@ -8,10 +8,9 @@ import Footer from './components/footerComponent';
 
 class App extends Component {
   render() {
-    console.log(this.props,'props in APP')
     return (
       <div className="app-main" style={{height: window.innerHeight}}>
-        {this.props.currentState === 'login' ? <LoggedOutHeader /> : <LoggedInHeader currentState={this.props.currentState}/>}
+        {this.props.currentState === 'login' ? <LoggedOutHeader /> : <LoggedInHeader signingStatus={this.props.signingStatus} currentState={this.props.currentState}/>}
         {this.props.children}
         {this.props.currentState === 'login' ? <Footer /> : null}
 
@@ -21,9 +20,10 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  const {currentState} = state;
+  const {currentState, signingStatus} = state;
   return {
-    currentState
+    currentState,
+    signingStatus
   }
 }
 

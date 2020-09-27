@@ -4,7 +4,7 @@ import Reducers from "./reducers.js";
 
 const reducer = combineReducers({
     currentState: Reducers.currentState,
-
+    signingStatus: Reducers.signingStatus,
 });
 
 export default function configureStore(initialState) {

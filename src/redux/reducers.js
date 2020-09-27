@@ -9,4 +9,13 @@ Reducers.currentState = function currentState(state='login', action) {
     }
 }
 
+Reducers.signingStatus = function signingStatus(state=false, action) {
+    switch(action.type) {
+        case 'UPDATE_USER_SIGN':
+            return action.data;
+        default:
+            return state;
+    }
+}
+
 export default Reducers;
