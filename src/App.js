@@ -3,13 +3,14 @@ import './App.css';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import LoggedOutHeader from './components/headerComponent/loggedOut';
+import LoggedInHeader from './components/headerComponent/loggedIn';
 
 class App extends Component {
   render() {
     console.log(this.props,'props in APP')
     return (
       <div className="">
-        <LoggedOutHeader />
+        {this.props.currentState === 'login' ? <LoggedOutHeader /> : <LoggedInHeader currentState={this.props.currentState}/>}
         {this.props.children}
       </div>
     );
@@ -17,9 +18,9 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  const {currentUser} = state;
+  const {currentState} = state;
   return {
-    currentUser
+    currentState
   }
 }
 

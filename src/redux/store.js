@@ -3,7 +3,7 @@ import thunkMiddleware from "redux-thunk";
 import Reducers from "./reducers.js";
 
 const reducer = combineReducers({
-  currentUser: Reducers.currentUser,
+    currentState: Reducers.currentState,
 
 });
 

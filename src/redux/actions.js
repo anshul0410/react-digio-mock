@@ -1,6 +1,5 @@
-const updateCurrentUser = () => {
+export const updateCurrentState = (data) => {
     return dispatch => {
-        let data = {name: 'anshul'}
-        dispatch({type: 'CURRENT_USER_INFO', data: data})
+        dispatch({type: 'CURRENT_STATE_INFO', data: data})
     }
 }

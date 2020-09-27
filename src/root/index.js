@@ -1,6 +1,7 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {Router} from 'react-router'
+// import {BrowserRouter as Router} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import history from './history';
 
@@ -17,7 +18,7 @@ const Root = props => {
                     <Switch>
                         <Route exact path="/" component={LoginContainer} />
                         <Route path="/dashboard" component={DashboardContainer} />
-                        <Route path="*" component={ErrorContainer} />
+                        {/* <Route path="*" component={ErrorContainer} /> */}
                     </Switch>
                 </App>
             </Router>

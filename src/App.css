@@ -6,13 +6,17 @@
   height: 40vmin;
   pointer-events: none;
 }
-
+/* HEADER */
 .loggedout-header-main {
   background-color: blue;
   display: flex;
   justify-content: space-between;
 }
-
+.loggedin-header-text-section p {
+  margin: 0;
+  margin-top: 2px;
+  font-size: 15px;
+}
 .loggedout-header-img {
   height: 50px;
   position: relative;
@@ -36,7 +40,13 @@
   color: #fff;
   font-size: 16px;
 }
-
+.loggedin-header-main {
+  padding: 28px;
+    border-bottom: 3px solid #c5c5c5;
+}
+.loggedin-header-main h4 {
+  margin: 0;
+}
 /* FOOTER */
 .footer-main{
   display: flex;
@@ -75,13 +85,124 @@
 /* LOGIN CONTAINER */
 .login-container-main, 
 .login-social-section,
-.login-confirm-policy-section {
+.login-confirm-policy-section,
+.login-with-email-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+.social-login-button {
+  background-color: red;
+  padding: 15px;
+  outline: none;
+  border: none;
+  width: 25%;
+  color: #fff;
+  font-size: 19px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.login-continue-button {
+  background-color: blue;
+  padding: 15px;
+  outline: none;
+  border: none;
+  width: 80%;
+  color: #fff;
+  font-size: 19px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.login-continue-button.disabled{
+  background-color: #c5c5c5;
+  color: #000;
+}
+.login-confirm-policy-section p {
+  width: 80%;
+  text-align: center;
+}
+.login-with-email-section h5 {
+  margin: 8px;
+  position: relative;
+  left: -20%;
+}
+.login-with-email-section input {
+  width: 75%;
+  padding: 10px;
+}
+.section-differentiator {
+  margin: 25px 0;
+}
+.section-differentiator .text {
+  text-align: center;
+}
+.section-differentiator .text::after {
+  content: "";
+  flex: 1 1;
+  border-bottom: 2px solid #c5c5c5; 
+  margin: auto; 
+}
 
+/* Adhar section */
+.adhar-details-section {
+  background-color: #f2f2f2;
+  padding: 25px
+}
+.adhar-img{
+  height: 50px;
+  margin-left: 20px;
+}
+.adhar-input-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.adhar-input-verify-section {
+  margin-left: 10px;
+  width: 83%;
+  display: flex;
+}
+.adhar-input-verify-section input, .adhar-otp-section input {
+  padding: 7px;
+  border: 1px solid darkgrey;
+  width: 65%;
+}
+.adhar-otp-section input {
+  padding: 7px;
+  border: 1px solid darkgrey;
+  width: 30%;
+}
+.adhar-input-verify-section button, .adhar-otp-section button {
+  padding: 6px;
+  margin-left: 8px;
+
+}
+.agreement-section {
+  display: flex;
+  margin: 15px;
+}
+.agreement-section p {
+  margin: 0;
+  font-size: 14px;
+  margin-left: 4px;
+}
+.agreement-section p span{
+  text-decoration: underline;
+}
+.checkbox-item {
+  border: 1px solid grey;
+  color: #fff;
+}
+.adhar-otp-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+.adhar-signin-process-section {
+  padding: 15px;
+  background-color: greenyellow;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

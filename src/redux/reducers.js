@@ -1,8 +1,8 @@
 const Reducers = {};
 
-Reducers.currentUser = function currentUser(state=false, action) {
+Reducers.currentState = function currentState(state='login', action) {
     switch(action.type) {
-        case 'CURRENT_USER_INFO':
+        case 'CURRENT_STATE_INFO':
             return action.data;
         default:
             return state;
