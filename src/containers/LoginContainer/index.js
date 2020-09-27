@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { connect } from "react-redux";
 import Footer from '../../components/footerComponent';
-import history from '../../root/history';
 import { adharNumberVerify, emailValidator, otpVerify } from '../../validators/validate';
 import AdharImg from '../../assets/1200px-Aadhaar_Logo.svg.png';
 import {updateCurrentState} from '../../redux/actions';
+import DocImg from '../../assets/doc.png'
 
 const LoginContainer = (props) => {
     const [email, setEmail] = useState('');
     const [checkbox, setCheckbox] = useState(false)
     const [adhar, setAdhar] = useState(null)
     const [otp, setOtp] = useState(null)
-    var timer = null, showVerified=null;
+    const [showVerified, setShowVerified] = useState(false)
     const handleEmailChange = (event) => {
         setEmail(event.target.value)
     }
@@ -29,8 +29,9 @@ const LoginContainer = (props) => {
     }
     const handleOtpSubmit = () => {
         props.getUpdatedState('signing')
-        timer = setTimeout(() => {
-            showVerified=true;
+        setTimeout(() => {
+            console.log('timeout called')
+            setShowVerified(true);
         }, 3000)
     }
 
@@ -68,14 +69,19 @@ const LoginContainer = (props) => {
                     <p>I agree to get eSign this <span>KYC document</span> to get started</p>
                 </div>
                 <div className="adhar-otp-section">
-                    <input type="number" onChange={handleAdharOTP} />
-                    <button disabled={otpVerify(otp) ? false : true} onClick={handleOtpSubmit} >Submit</button>
+                    <input type="number" onChange={handleAdharOTP} disabled={!checkbox}/>
+                    <button disabled={otpVerify(otp) && checkbox ? false : true} onClick={handleOtpSubmit} >Submit</button>
                 </div>
             </div>
-            {/* <div className="login-confirm-policy-section">
-                <p>By confirming i confirm to the terms and service and privacy policy of <a href="www.digio.in">Digio.in</a></p>
-                <button onClick={handleContinueClick} className={`login-continue-button ${emailValidator(email) ? '' : 'disabled'}`} disabled={emailValidator(email) ? false : true}>CONTINUE</button>
-            </div> */}
+            <div className="document-content-div">
+                <div className="overlay"></div>
+                <div className="document-div">
+                    <img src={DocImg} />
+                </div>
+                <div className="static-button-div">
+                    <button className="static-otp-button">Request OTP to sign</button>
+                </div>
+            </div>
         </div>
         : null 
         }
@@ -83,18 +89,23 @@ const LoginContainer = (props) => {
             props.currentState === 'signing' ? <div className="login-container-content-wrapper">
             <div className="adhar-signin-process-section">
                 <div className="">
+                    {showVerified ? <i className="far fa-check-circle" style={{color: 'green', fontSize: 25}}></i> : null}
                     <h4>{showVerified ? 'Adhar verified successfully' : 'Loading...'}</h4>
                 </div>
             </div>
-            {/* <div className="login-confirm-policy-section">
-                <p>By confirming i confirm to the terms and service and privacy policy of <a href="www.digio.in">Digio.in</a></p>
-                <button onClick={handleContinueClick} className={`login-continue-button ${emailValidator(email) ? '' : 'disabled'}`} disabled={emailValidator(email) ? false : true}>CONTINUE</button>
-            </div> */}
+            <div className="document-content-div">
+                {!showVerified ? <div className="overlay"></div>: null}
+                <div className="document-div">
+                    <img src={DocImg} />
+                </div>
+                <div className="static-button-div">
+                    <button className="static-otp-button">Request OTP to sign</button>
+                </div>
+            </div>
         </div>
         : null 
         }
         
-        <Footer />
     </div>
   );
 }

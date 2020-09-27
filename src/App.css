@@ -6,6 +6,11 @@
   height: 40vmin;
   pointer-events: none;
 }
+
+/* APP main */
+.app-main {
+  position: relative;
+}
 /* HEADER */
 .loggedout-header-main {
   background-color: blue;
@@ -202,8 +207,49 @@
 .adhar-signin-process-section {
   padding: 15px;
   background-color: greenyellow;
+  font-size: 12px;
 }
-
+.adhar-signin-process-section div {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.adhar-signin-process-section div h4 {
+  margin-left: 5px;
+  font-size: 14px;
+  color:blue;
+  font-weight: 400;
+}
+.static-otp-button {
+  background-color: blue;
+  padding: 10px;
+  color: #fff;
+  outline: none;
+  border: none;
+}
+.static-button-div {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.document-div {
+  width: 100%;
+}
+.document-div img {
+  width: 100%;
+}
+.document-content-div {
+  position: relative;
+}
+.overlay{
+  background: #000;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    opacity: 0.5
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
